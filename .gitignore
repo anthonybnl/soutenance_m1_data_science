@@ -1,0 +1,10 @@
+# Python
+.env
+.venv
+__pycache__
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS code
+.vscode/
