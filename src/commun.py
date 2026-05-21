@@ -1,0 +1,35 @@
+variables_numeriques = [
+    "age",
+    "tenure_months",
+    "monthly_logins",
+    "weekly_active_days",
+    "avg_session_time",
+    "features_used",
+    "usage_growth_rate",
+    "last_login_days_ago",
+    "monthly_fee",
+    "total_revenue",
+    "payment_failures",
+    "support_tickets",
+    "avg_resolution_time",
+    "csat_score",
+    "escalations",
+    "email_open_rate",
+    "marketing_click_rate",
+    "nps_score",
+    "referral_count"
+]
+
+variables_categorielles = [
+    "gender",
+    "country",
+    "city",
+    "customer_segment",
+    "signup_channel",
+    "contract_type",
+    "payment_method",
+    "discount_applied",
+    "price_increase_last_3m",
+    "complaint_type",
+    "survey_response",
+]
