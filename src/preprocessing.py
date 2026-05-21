@@ -1,3 +1,4 @@
+import joblib
 import pandas as pd
 from pathlib import Path
 from sklearn.compose import ColumnTransformer
@@ -9,6 +10,7 @@ from sklearn.model_selection import train_test_split as sklearn_train_test_split
 
 BASE_PATH = Path(__file__).resolve().parents[1]
 DATA_PATH = BASE_PATH / "data"
+MODELS_PATH = BASE_PATH / "models"
 
 
 def train_test_split(X, y, test_size=0.2):
@@ -58,9 +60,14 @@ def train_preprocess(df: pd.DataFrame):
     X_train_df = pd.DataFrame(X_train_preprocessed, columns=feature_names)
     X_test_df = pd.DataFrame(X_test_preprocessed, columns=feature_names)
 
-    # Sauvegarde
+    # Sauvegarde données
     DATA_PROC_PATH = DATA_PATH / "processed"
     DATA_PROC_PATH.mkdir(parents=True, exist_ok=True)
+
+    # Sauvegarde preprocessor pour l'API
+    MODELS_PATH.mkdir(parents=True, exist_ok=True)
+    joblib.dump(preprocessor, MODELS_PATH / "preprocessor.pkl")
+    print(f"Preprocessor sauvegardé : {MODELS_PATH / 'preprocessor.pkl'}")
 
     X_train_df.to_csv(DATA_PROC_PATH / "X_train.csv", index=False)
     X_test_df.to_csv(DATA_PROC_PATH / "X_test.csv", index=False)
