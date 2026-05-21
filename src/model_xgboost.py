@@ -16,7 +16,7 @@ def train():
         n_estimators=100,
         learning_rate=0.1,
         max_depth=6,
-        random_state=42,
+        random_state=17,
         eval_metric="logloss",
     )
     model.fit(X_train, y_train)

@@ -130,7 +130,7 @@ if submitted:
             response.raise_for_status()
             result = response.json()
         except requests.exceptions.HTTPError as e:
-            st.error(f"Erreur API : {e.response.text}")
+            st.error(f"Erreur API : {e.response.text if e.response else e}")
             st.stop()
         except Exception as e:
             st.error(f"Erreur inattendue : {e}")

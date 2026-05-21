@@ -13,7 +13,7 @@ def train():
     X_train, X_test, y_train, y_test = charger_donnees_preprocessed()
 
     model = RandomForestClassifier(
-        class_weight="balanced", n_estimators=100, random_state=42
+        class_weight="balanced", n_estimators=100, random_state=17
     )
     model.fit(X_train, y_train)
 

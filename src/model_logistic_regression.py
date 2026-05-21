@@ -12,7 +12,7 @@ MODELS_PATH = Path(__file__).resolve().parents[1] / "models"
 def train():
     X_train, X_test, y_train, y_test = charger_donnees_preprocessed()
 
-    model = LogisticRegression(class_weight="balanced", max_iter=1000, random_state=42)
+    model = LogisticRegression(class_weight="balanced", max_iter=1000, random_state=17)
     model.fit(X_train, y_train)
 
     y_pred = model.predict(X_test)
