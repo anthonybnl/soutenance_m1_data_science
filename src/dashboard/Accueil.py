@@ -30,7 +30,7 @@ st.set_page_config(
 )
 
 # ── En-tête ──────────────────────────────────────────────────────────────────
-st.title("📊 Churn Intelligence — Système de Rétention Client")
+st.title("📊 Churn Intelligence - Système de Rétention Client")
 st.markdown("""
 Bienvenue sur la plateforme de prédiction du churn client.
 
@@ -66,29 +66,32 @@ nb_a_risque = int((df["proba_churn"] >= SEUIL_CHURN).sum())
 revenu_a_risque = df.loc[df["proba_churn"] >= SEUIL_CHURN, "monthly_fee"].sum()
 taux_churn = nb_a_risque / nb_clients * 100
 
-with st.expander("Détails des KPIs", expanded=True):
+st.subheader("Détail des KPIs")
 
-    col1, col2, col3, col4 = st.columns(4)
+# with st.expander("Détails des KPIs", expanded=True):
 
-    col1.metric(
-        label="👥 Clients total",
-        value=f"{nb_clients:,}",
-    )
-    col2.metric(
-        label="⚠️ Clients à risque",
-        value=f"{nb_a_risque:,}",
-        help=f"Seuil de probabilité de churn ≥ {SEUIL_CHURN:.0%}",
-    )
-    col3.metric(
-        label="📉 Taux de désabonnement estimé",
-        value=f"{taux_churn:.1f}%",
-    )
-    col4.metric(
-        label="💰 Revenu mensuel à risque",
-        value=f"${revenu_a_risque:,.0f}",
-        help="Somme des frais mensuels des clients à risque",
-    )
+col1, col2, col3, col4 = st.columns(4)
 
-with st.expander("Facteurs de risque de résiliation", expanded=True):
-    st.image(BASE_PATH / "img" / "features_importance.png")
+col1.metric(
+    label="👥 Clients total",
+    value=f"{nb_clients:,}",
+)
+col2.metric(
+    label="⚠️ Clients à risque",
+    value=f"{nb_a_risque:,}",
+    help=f"Seuil de probabilité de churn ≥ {SEUIL_CHURN:.0%}",
+)
+col3.metric(
+    label="📉 Taux de désabonnement estimé",
+    value=f"{taux_churn:.1f}%",
+)
+col4.metric(
+    label="💰 Revenu mensuel à risque",
+    value=f"${revenu_a_risque:,.0f}",
+    help="Somme des frais mensuels des clients à risque",
+)
 
+st.markdown("---")
+st.subheader("Facteurs de risque de résiliation")
+
+st.image(BASE_PATH / "img" / "features_importance.png")
