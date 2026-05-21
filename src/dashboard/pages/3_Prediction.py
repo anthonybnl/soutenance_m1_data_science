@@ -3,8 +3,8 @@ import streamlit as st
 
 API_URL = "http://localhost:8000"
 
-st.set_page_config(page_title="Prédiction Churn", page_icon="🔮", layout="wide")
-st.title("🔮 Prédiction du Churn Client")
+st.set_page_config(page_title="Churn Intelligence - Prédiction", page_icon="🔮", layout="wide")
+st.title("🔮 Churn Intelligence - Prédiction de la résiliation")
 st.markdown("Renseignez les informations du client pour estimer son risque de résiliation.")
 
 # ---------------------------------------------------------------------------
