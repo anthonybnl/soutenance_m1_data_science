@@ -22,7 +22,6 @@ variables_numeriques = [
 
 variables_categorielles = [
     "gender",
-    "country",
     "city",
     "customer_segment",
     "signup_channel",
