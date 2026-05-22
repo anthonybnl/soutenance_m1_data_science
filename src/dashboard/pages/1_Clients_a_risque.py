@@ -14,7 +14,7 @@ from src.commun import variables_numeriques, variables_categorielles
 import src.model_xgboost as model_xgboost
 
 MODELS_PATH = BASE_PATH / "models"
-SEUIL_CHURN = 0.5
+SEUIL_CHURN = 0.32
 
 st.set_page_config(
     page_title="Churn Intelligence",

@@ -117,11 +117,11 @@ def predict(client: ClientInput):
         raise HTTPException(status_code=422, detail=f"Erreur de preprocessing : {e}")
 
     proba = float(model.predict_proba(X)[0, 1])
-    prediction = int(proba >= 0.5)
+    prediction = int(proba >= 0.32)
 
-    if proba < 0.1:
+    if proba < 0.15:
         risque = "Faible"
-    elif proba < 0.4:
+    elif proba < 0.32:
         risque = "Modéré"
     else:
         risque = "Élevé"
